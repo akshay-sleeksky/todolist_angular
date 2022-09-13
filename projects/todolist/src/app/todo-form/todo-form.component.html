@@ -1,0 +1,15 @@
+<div class="py-10">
+    <input
+    class="bg-gray-50 border border-gray-300 text-gray-500 text-m rounded-lg 
+            block p-3 w-full max-w-lg capitalize"
+        placeholder="Type here...!"
+        [(ngModel)]="newTask"
+        (ngModelChange)="inputChange($event)"
+        (keyup.enter)="addTodo()"
+    >
+    <button 
+        (click)="addTodo()"
+        class="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded mt-2">
+        Add Todo
+    </button>
+</div>

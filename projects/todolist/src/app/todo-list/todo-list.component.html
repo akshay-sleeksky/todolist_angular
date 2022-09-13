@@ -1,0 +1,20 @@
+<div class="my-5">
+    <table class="capitalize border-collapse border-2 border-gray-400 w-full">
+        <thead>
+          <tr>
+            <th class="border border-gray-400 py-2 text-gray-800 w-1/3">Content</th>
+            <th class="border border-gray-400 py-2 text-gray-800 w-1/4">Status</th>
+            <th class="border border-gray-400 py-2 text-gray-800 w-1/12">Options</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let todo of todos$ | async; let i = index">
+          <tr>
+            <td class="{{ !todo.completed ? 'border border-gray-400 px-4 py-2 text-center' : 'text-center border border-gray-400 px-4 py-2 line-through hover:no-underline decoration-2 select-none' }}">{{ todo.content }}</td>
+            <td class="{{ todo.completed ? 'select-none text-center border border-gray-400  py-2 hover:cursor-pointer bg-green-200 hover:bg-green-300' : 'text-center border border-gray-400  py-2 hover:cursor-pointer bg-red-400 hover:bg-red-500 select-none' }}" 
+                (click)="updateTodoStatus(i)">{{ todo.completed ? 'Done' : 'Not Done'}}</td>            
+            <td class="select-none text-center border border-gray-400  py-2 hover:cursor-pointer hover:bg-slate-400 hover:text-white font-medium" 
+                (click)="deleteTodo(i)"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon></td>            
+          </tr>
+        </tbody>
+      </table>
+</div>
